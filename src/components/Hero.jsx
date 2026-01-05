@@ -9,8 +9,12 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           {/* Photo de profil */}
           <div className="mb-8">
-            <div className="w-32 h-32 mx-auto rounded-full bg-muted flex items-center justify-center text-muted-foreground">
-              <UserCircle className="w-20 h-20" />
+            <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white shadow-xl bg-muted">
+              <img
+                src="/images/profil.png"
+                alt="Maxence Bernard"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 

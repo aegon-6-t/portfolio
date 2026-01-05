@@ -2,9 +2,9 @@ import React from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
-import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Experience from './components/Experience'
+import Company from './components/Company'
 import TechWatch from './components/TechWatch'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -21,14 +21,14 @@ function App() {
       {/* Section à propos */}
       <About />
 
-      {/* Section compétences */}
-      <Skills />
-
       {/* Section projets */}
       <Projects />
 
       {/* Section expérience/parcours */}
       <Experience />
+
+      {/* Section entreprise */}
+      <Company />
 
       {/* Section veille technologique */}
       <TechWatch />

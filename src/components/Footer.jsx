@@ -107,7 +107,7 @@ const Footer = () => {
               © {currentYear} Portfolio BTS SIO. Tous droits réservés.
             </div>
             <div className="flex items-center space-x-6 text-sm text-gray-300">
-              <span>Fait avec ❤️ et React.js</span>
+              <span>Fait avec React.js</span>
               <a
                 href="#hero"
                 className="hover:text-white transition-colors duration-200 flex items-center"

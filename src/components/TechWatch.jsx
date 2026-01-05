@@ -1,4 +1,5 @@
 import React from 'react'
+import { Bot, Globe, Shield, Cpu, Gamepad, Zap, Youtube, MessageSquare } from 'lucide-react'
 
 const TechWatch = () => {
   const watchTopics = [
@@ -6,59 +7,80 @@ const TechWatch = () => {
       id: 1,
       title: "Intelligence Artificielle",
       description: "Suivi des dernières avancées en IA et machine learning",
-      icon: "🤖",
-      color: "bg-blue-500"
+      color: "bg-blue-500",
+      Icon: "Bot"
     },
     {
       id: 2,
       title: "Développement Web",
       description: "Nouvelles technologies et frameworks web",
-      icon: "🌐",
-      color: "bg-green-500"
+      color: "bg-green-500",
+      Icon: "Globe"
     },
     {
       id: 3,
       title: "Cybersécurité",
       description: "Actualités sur la sécurité informatique",
-      icon: "🔒",
-      color: "bg-red-500"
+      color: "bg-red-500",
+      Icon: "Shield"
+    },
+    {
+      id: 4,
+      title: "Nouvelles technologies",
+      description: "Suivi des innovations et ruptures technologiques",
+      color: "bg-purple-500",
+      Icon: "Zap"
+    },
+    {
+      id: 5,
+      title: "Hardware PC",
+      description: "Actualités sur les composants et l'architecture ordinateur",
+      color: "bg-indigo-500",
+      Icon: "Cpu"
+    },
+    {
+      id: 6,
+      title: "Gaming",
+      description: "Tendances de l'industrie du jeu vidéo et e-sport",
+      color: "bg-orange-500",
+      Icon: "Gamepad"
     }
   ]
 
   const articles = [
     {
       id: 1,
-      title: "L'avenir de React avec les Server Components",
-      source: "Dev.to",
-      date: "15 Mars 2024",
+      title: "GitHub Copilot Workspace: Welcome to the agentic future",
+      source: "GitHub Blog",
+      date: "29 Avril 2024",
       category: "Développement Web",
-      summary: "Exploration des nouvelles fonctionnalités de React et leur impact sur le développement web moderne.",
-      link: "#"
+      summary: "Découverte de l'environnement de développement natif IA de GitHub, où les spécifications deviennent du code.",
+      link: "https://github.blog/2024-04-29-github-copilot-workspace/"
     },
     {
       id: 2,
+      title: "OpenAI Sora : Une révolution pour la vidéo",
+      source: "YouTube",
+      date: "15 Février 2024",
+      category: "Intelligence Artificielle",
+      summary: "Présentation détaillée du nouveau modèle de génération de vidéos d'OpenAI et ses implications.",
+      link: "https://www.youtube.com/watch?v=HK6y8DAPN_0"
+    },
+    {
+      id: 3,
       title: "Les tendances cybersécurité en 2024",
       source: "TechCrunch",
       date: "10 Mars 2024",
       category: "Cybersécurité",
       summary: "Analyse des principales menaces et solutions de sécurité pour cette année.",
-      link: "#"
-    },
-    {
-      id: 3,
-      title: "ChatGPT et l'impact sur le développement",
-      source: "Medium",
-      date: "5 Mars 2024",
-      category: "Intelligence Artificielle",
-      summary: "Comment l'IA transforme la façon dont nous développons des applications.",
-      link: "#"
+      link: "https://techcrunch.com/category/security/"
     }
   ]
 
   const sources = [
-    { name: "Dev.to", url: "https://dev.to", description: "Communauté de développeurs" },
+    { name: "YouTube", url: "https://youtube.com", description: "Chaînes tech et hardware" },
+    { name: "Discord", url: "https://discord.com", description: "Bot articles et communautés" },
     { name: "TechCrunch", url: "https://techcrunch.com", description: "Actualités tech" },
-    { name: "Medium", url: "https://medium.com", description: "Articles techniques" },
     { name: "GitHub Blog", url: "https://github.blog", description: "Actualités développement" },
     { name: "Stack Overflow", url: "https://stackoverflow.com", description: "Q&A développeurs" }
   ]
@@ -82,7 +104,7 @@ const TechWatch = () => {
           {/* Qu'est-ce que la veille technologique */}
           <div className="mb-16 bg-gray-50 rounded-lg p-8">
             <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-              Qu'est-ce que la veille technologique ? 🔍
+              Qu'est-ce que la veille technologique ?
             </h3>
             <p className="text-gray-700 leading-relaxed mb-4">
               La veille technologique consiste à surveiller les évolutions techniques,
@@ -106,8 +128,13 @@ const TechWatch = () => {
               {watchTopics.map((topic) => (
                 <div key={topic.id} className="bg-white border-2 border-gray-100 rounded-lg p-6 hover:border-primary-200 transition-colors duration-200">
                   <div className="flex items-center mb-4">
-                    <div className={`w-12 h-12 ${topic.color} rounded-lg flex items-center justify-center text-white text-xl mr-4`}>
-                      {topic.icon}
+                    <div className={`w-12 h-12 ${topic.color} rounded-lg flex items-center justify-center text-white mr-4`}>
+                      {topic.Icon === 'Bot' && <Bot size={24} />}
+                      {topic.Icon === 'Globe' && <Globe size={24} />}
+                      {topic.Icon === 'Shield' && <Shield size={24} />}
+                      {topic.Icon === 'Zap' && <Zap size={24} />}
+                      {topic.Icon === 'Cpu' && <Cpu size={24} />}
+                      {topic.Icon === 'Gamepad' && <Gamepad size={24} />}
                     </div>
                     <h4 className="text-lg font-semibold text-gray-900">{topic.title}</h4>
                   </div>
@@ -153,7 +180,7 @@ const TechWatch = () => {
           {/* Sources de veille */}
           <div className="bg-gray-50 rounded-lg p-8">
             <h3 className="text-2xl font-semibold text-gray-900 mb-6 text-center">
-              Mes sources de veille 📚
+              Mes sources de veille
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {sources.map((source, index) => (
@@ -168,27 +195,6 @@ const TechWatch = () => {
                   <p className="text-gray-600 text-sm">{source.description}</p>
                 </a>
               ))}
-            </div>
-
-            <div className="mt-8 text-center">
-              <p className="text-gray-600 mb-4">
-                Je consulte également des newsletters spécialisées, des podcasts tech
-                et je participe à des communautés de développeurs sur Discord et Reddit.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <span className="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-700">
-                  📧 Newsletters tech
-                </span>
-                <span className="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-700">
-                  🎧 Podcasts
-                </span>
-                <span className="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-700">
-                  💬 Communautés
-                </span>
-                <span className="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-700">
-                  📱 Réseaux sociaux
-                </span>
-              </div>
             </div>
           </div>
         </div>

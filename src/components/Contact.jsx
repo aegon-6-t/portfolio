@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Mail, Phone, MapPin, Linkedin } from 'lucide-react'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -25,25 +26,25 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: '📧',
+      icon: 'Mail',
       title: 'Email',
       value: 'bernardmaxence09@gmail.com',
       link: 'mailto:bernardmaxence09@gmail.com'
     },
     {
-      icon: '📱',
+      icon: 'Phone',
       title: 'Téléphone',
       value: '+33 7 67 02 88 70',
       link: 'tel:+33767028870'
     },
     {
-      icon: '📍',
+      icon: 'MapPin',
       title: 'Localisation',
       value: 'Lyon, France',
       link: '#'
     },
     {
-      icon: '💼',
+      icon: 'Linkedin',
       title: 'LinkedIn',
       value: 'linkedin.com/in/maxence-bernard-alternance',
       link: 'https://www.linkedin.com/in/maxence-bernard-alternance/'
@@ -106,8 +107,11 @@ const Contact = () => {
               <div className="space-y-6 mb-8">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex items-center">
-                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-xl mr-4">
-                      {info.icon}
+                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 mr-4">
+                      {info.icon === 'Mail' && <Mail size={24} />}
+                      {info.icon === 'Phone' && <Phone size={24} />}
+                      {info.icon === 'MapPin' && <MapPin size={24} />}
+                      {info.icon === 'Linkedin' && <Linkedin size={24} />}
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">{info.title}</h4>
@@ -144,16 +148,7 @@ const Contact = () => {
               </div>
 
               {/* Disponibilité */}
-              <div className="mt-8 p-6 bg-white rounded-lg shadow-md">
-                <h4 className="text-lg font-semibold text-gray-900 mb-3">
-                  Disponibilité 📅
-                </h4>
-                <div className="space-y-2 text-gray-700">
-                  <p><strong>Stage :</strong> Recherche active pour 2025</p>
-                  <p><strong>Projets :</strong> Ouvert aux collaborations</p>
-                  <p><strong>Réponse :</strong> Sous 24h en général</p>
-                </div>
-              </div>
+
             </div>
 
             {/* Formulaire de contact */}

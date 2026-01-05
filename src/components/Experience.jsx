@@ -1,4 +1,5 @@
 import React from 'react'
+import { GraduationCap, Briefcase, Rocket, MapPin } from 'lucide-react'
 
 const Experience = () => {
   const experiences = [
@@ -6,22 +7,22 @@ const Experience = () => {
       id: 1,
       type: 'education',
       title: 'BTS SIO Option SLAM',
-      organization: 'Lycée [Nom du lycée]',
-      location: 'Ville, France',
-      period: '2023 - 2025',
+      organization: 'Nexa Digital School',
+      location: 'Lyon, France',
+      period: '2024 - 2026',
       description: 'Formation en Services Informatiques aux Organisations, spécialisation Solutions Logicielles et Applications Métiers.',
-      skills: ['Développement web', 'Bases de données', 'Programmation orientée objet', 'Gestion de projet'],
+      skills: ['Développement logiciel', 'Développement web', 'Bases de données', 'Programmation orientée objet', 'Histoire de l\'informatique', 'Cybersécurité', 'Gestion de projet'],
       current: true
     },
     {
       id: 2,
-      type: 'internship',
-      title: 'Stage de développement web',
-      organization: 'Entreprise XYZ',
-      location: 'Ville, France',
-      period: 'Mai - Juillet 2024',
-      description: 'Développement d\'une application web pour la gestion des stocks. Travail en équipe avec méthode Agile.',
-      skills: ['React.js', 'Node.js', 'MySQL', 'Git'],
+      type: 'education',
+      title: 'BAC Option NSI',
+      organization: 'Lycée Institut Notre Dame',
+      location: 'Valence, France',
+      period: '2020 - 2023',
+      description: 'Baccalauréat général avec spécialité Numérique et Sciences Informatiques.',
+      skills: ['Programmation', 'Histoire de l\'informatique', 'Architecture réseaux', 'Matériel informatique', 'Systèmes embarqués'],
       current: false
     }
   ]
@@ -29,13 +30,13 @@ const Experience = () => {
   const getIcon = (type) => {
     switch (type) {
       case 'education':
-        return '🎓'
+        return 'GraduationCap'
       case 'internship':
-        return '💼'
+        return 'Briefcase'
       case 'project':
-        return '🚀'
+        return 'Rocket'
       default:
-        return '📍'
+        return 'MapPin'
     }
   }
 
@@ -58,7 +59,11 @@ const Experience = () => {
               <div key={experience.id} className="bg-white rounded-lg shadow-lg p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center">
-                    <span className="text-2xl mr-3">{getIcon(experience.type)}</span>
+                    <span className="text-primary-600 mr-3">
+                      {experience.type === 'education' && <GraduationCap size={24} />}
+                      {experience.type === 'internship' && <Briefcase size={24} />}
+                      {experience.type === 'project' && <Rocket size={24} />}
+                    </span>
                     <div>
                       <h3 className="text-xl font-semibold text-gray-900">{experience.title}</h3>
                       <p className="text-primary-600 font-medium">{experience.organization}</p>

@@ -18,7 +18,6 @@ const Header = () => {
   const navItems = [
     { name: 'Accueil', href: '#hero' },
     { name: 'À propos', href: '#about' },
-    { name: 'Compétences', href: '#skills' },
     { name: 'Projets', href: '#projects' },
     { name: 'Parcours', href: '#experience' },
     { name: 'Veille', href: '#techwatch' },
@@ -26,10 +25,14 @@ const Header = () => {
   ]
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
-      }`}>
-      <nav className="container">
-        <div className="flex items-center justify-between h-16">
+    <header
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-5xl rounded-full border ${isScrolled
+        ? 'bg-background/80 backdrop-blur-md shadow-md border-border/50'
+        : 'bg-transparent border-transparent'
+        }`}
+    >
+      <nav className="px-6">
+        <div className="flex items-center justify-between h-14">
           {/* Logo/Nom */}
           <div className="flex-shrink-0">
             <a href="#hero" className="text-xl font-bold text-primary">
