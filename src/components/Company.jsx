@@ -32,16 +32,16 @@ const Company = () => {
             <div className="w-24 h-1.5 bg-primary-600 mx-auto rounded-full"></div>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-8 items-stretch">
-            {/* Colonne Image - 50% Largeur sur Desktop */}
-            <div className="w-full lg:w-1/2 flex">
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            {/* Colonne Image - Mise en valeur maximale */}
+            <div className="w-full lg:w-5/12">
               <div className="relative group w-full flex">
                 <div className="absolute -inset-4 bg-gradient-to-r from-primary-600 to-blue-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition duration-500"></div>
-                <div className="relative bg-white rounded-2xl shadow-2xl p-4 flex items-center justify-center border border-gray-100 w-full min-h-[400px]">
+                <div className="relative bg-white rounded-2xl shadow-2xl p-4 flex items-center justify-center border border-gray-100 min-h-[320px]">
                   <img
                     src="/images/constructel.png"
                     alt="Constructel Logo"
-                    className="w-full h-full object-contain max-h-[600px] hover:scale-105 transition-transform duration-500"
+                    className="w-full h-auto object-contain max-h-[500px] hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 {/* Badge flottant */}
@@ -58,7 +58,7 @@ const Company = () => {
             </div>
 
             {/* Colonne Contenu */}
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-7/12">
               <div className="bg-gray-50/50 rounded-3xl p-8 md:p-10 border border-gray-100 hover:border-primary-100 transition-colors duration-300">
                 <div className="mb-8">
                   <h3 className="text-4xl font-extrabold text-gray-900 mb-2">Constructel</h3>
