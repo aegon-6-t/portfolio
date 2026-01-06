@@ -38,11 +38,11 @@ const Company = () => {
             <div className="w-full lg:w-5/12">
               <div className="relative group">
                 <div className="absolute -inset-4 bg-gradient-to-r from-primary-600 to-blue-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition duration-500"></div>
-                <div className="relative bg-white rounded-2xl shadow-2xl p-8 flex items-center justify-center border border-gray-100 min-h-[320px]">
+                <div className="relative bg-white rounded-2xl shadow-2xl p-4 flex items-center justify-center border border-gray-100 min-h-[320px]">
                   <img
                     src="/images/constructel.png"
                     alt="Constructel Logo"
-                    className="w-full h-auto object-contain max-h-[340px] hover:scale-105 transition-transform duration-500"
+                    className="w-full h-auto object-contain max-h-[500px] hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 {/* Badge flottant */}
