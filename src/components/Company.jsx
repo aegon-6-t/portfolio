@@ -105,7 +105,7 @@ const Company = () => {
                 <div className="pt-6 border-t border-gray-200 flex items-center justify-between">
                   <div className="flex flex-col">
                     <span className="text-xs uppercase text-gray-400 font-bold tracking-widest">Mon Rôle</span>
-                    <span className="text-lg font-bold text-gray-900">Alternant Technicien</span>
+                    <span className="text-lg font-bold text-gray-900">Alternant Technicien Helpdesk</span>
                   </div>
                   <div className="flex flex-col items-end">
                     <span className="text-xs uppercase text-gray-400 font-bold tracking-widest">Depuis</span>
