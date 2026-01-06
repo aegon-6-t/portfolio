@@ -18,101 +18,105 @@ const Company = () => {
   ]
 
   return (
-    <section id="company" className="section-padding bg-gray-50">
-      <div className="container-custom">
+    <section id="company" className="section-padding bg-white relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary-50 skew-x-12 translate-x-32 z-0 opacity-50"></div>
+
+      <div className="container-custom relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Titre de section */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
               Mon Entreprise
             </h2>
-            <div className="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
+            <div className="w-24 h-1.5 bg-primary-600 mx-auto rounded-full"></div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
-            <div className="grid md:grid-cols-2">
-              {/* Colonne Image & Info */}
-              <div className="bg-gray-900 p-8 text-white flex flex-col justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-primary-900/20 z-0"></div>
-                <div className="relative z-10">
-                  <div className="w-32 h-32 bg-white rounded-xl p-4 mb-8 flex items-center justify-center mx-auto md:mx-0 shadow-lg">
-                    <img
-                      src="/images/constructel.png"
-                      alt="Constructel Logo"
-                      className="max-w-full max-h-full object-contain"
-                    />
-                  </div>
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
 
-                  <h3 className="text-3xl font-bold mb-2">Constructel</h3>
-                  <div className="flex items-center text-gray-300 mb-6">
-                    <MapPin className="w-5 h-5 mr-2 text-primary-400" />
-                    <span>Portes-lès-Valence, France</span>
-                  </div>
-
-                  <p className="text-gray-300 leading-relaxed mb-8">
-                    Depuis sa création, Constructel est spécialisée dans le monde des infrastructures et
-                    des technologies de télécommunications. L’ensemble de nos métiers contribuent à connecter
-                    les territoires entre eux. En devenant un acteur engagé, Constructel augmente ses impacts
-                    positifs et devient un partenaire clé des transitions énergétique et numérique.
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
-                      <Building2 className="w-6 h-6 text-primary-400 mb-2" />
-                      <span className="block text-sm text-gray-400">Secteur</span>
-                      <span className="font-semibold">Télécoms & Énergie</span>
-                    </div>
-                    <div className="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
-                      <Calendar className="w-6 h-6 text-primary-400 mb-2" />
-                      <span className="block text-sm text-gray-400">Depuis</span>
-                      <span className="font-semibold">2024</span>
-                    </div>
-                  </div>
+            {/* Colonne Image - Mise en valeur maximale */}
+            <div className="w-full lg:w-5/12">
+              <div className="relative group">
+                <div className="absolute -inset-4 bg-gradient-to-r from-primary-600 to-blue-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition duration-500"></div>
+                <div className="relative bg-white rounded-2xl shadow-2xl p-8 flex items-center justify-center border border-gray-100 min-h-[320px]">
+                  <img
+                    src="/images/constructel.png"
+                    alt="Constructel Logo"
+                    className="w-full h-auto object-contain max-h-[180px] hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-              </div>
-
-              {/* Colonne Poste & Missions */}
-              <div className="p-8 md:p-12 flex flex-col justify-center">
-                <div className="mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Technicien Helpdesk</h3>
-                  <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">
-                    Alternance
-                  </span>
-                </div>
-
-                <div className="mb-8">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <Wrench className="w-5 h-5 mr-2 text-primary-600" />
-                    Mes Missions
-                  </h4>
-                  <ul className="space-y-3">
-                    {missions.map((mission, index) => (
-                      <li key={index} className="flex items-start text-gray-600">
-                        <span className="mr-3 text-primary-500 mt-1.5">•</span>
-                        <span>{mission}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <Terminal className="w-5 h-5 mr-2 text-primary-600" />
-                    Environnement Technique
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded-md font-medium border border-gray-200"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                {/* Badge flottant */}
+                <div className="absolute -bottom-6 -right-6 bg-white py-3 px-6 rounded-xl shadow-xl border border-gray-100 flex items-center space-x-3">
+                  <div className="p-2 bg-primary-100 rounded-lg">
+                    <MapPin className="w-6 h-6 text-primary-600" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Localisation</p>
+                    <p className="font-bold text-gray-900">Portes-lès-Valence</p>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* Colonne Contenu */}
+            <div className="w-full lg:w-7/12">
+              <div className="bg-gray-50/50 rounded-3xl p-8 md:p-10 border border-gray-100 hover:border-primary-100 transition-colors duration-300">
+                <div className="mb-8">
+                  <h3 className="text-4xl font-extrabold text-gray-900 mb-2">Constructel</h3>
+                  <p className="text-xl text-primary-600 font-medium mb-6">Expert Infrastructures Télécoms & Énergie</p>
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    Acteur majeur connectant les territoires, nous déployons des solutions innovantes
+                    pour les transitions <strong>numérique</strong> et <strong>énergétique</strong> de demain.
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  {/* Missions */}
+                  <div>
+                    <h4 className="flex items-center text-lg font-bold text-gray-900 mb-4 border-l-4 border-primary-500 pl-3">
+                      <Wrench className="w-5 h-5 mr-3 text-primary-500" />
+                      Missions Helpdesk
+                    </h4>
+                    <ul className="space-y-3">
+                      {missions.slice(0, 4).map((mission, index) => (
+                        <li key={index} className="flex items-start text-sm text-gray-700">
+                          <div className="w-1.5 h-1.5 bg-primary-400 rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
+                          <span className="leading-snug">{mission}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Stack */}
+                  <div>
+                    <h4 className="flex items-center text-lg font-bold text-gray-900 mb-4 border-l-4 border-blue-500 pl-3">
+                      <Terminal className="w-5 h-5 mr-3 text-blue-500" />
+                      Stack Technique
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {technologies.map((tech, index) => (
+                        <span key={index} className="px-3 py-1 bg-white border border-gray-200 rounded-md text-xs font-semibold text-gray-600 shadow-sm">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-6 border-t border-gray-200 flex items-center justify-between">
+                  <div className="flex flex-col">
+                    <span className="text-xs uppercase text-gray-400 font-bold tracking-widest">Mon Rôle</span>
+                    <span className="text-lg font-bold text-gray-900">Alternant Technicien</span>
+                  </div>
+                  <div className="flex flex-col items-end">
+                    <span className="text-xs uppercase text-gray-400 font-bold tracking-widest">Depuis</span>
+                    <span className="text-lg font-bold text-gray-900">2024</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
