@@ -109,7 +109,7 @@ const Projects = () => {
       <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         {/* Image du projet */}
         <div className="h-48 group relative overflow-hidden bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
-          {!imgError ? (
+          {project.image && !imgError ? (
             <img
               src={project.image}
               alt={project.title}
