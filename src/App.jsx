@@ -9,36 +9,31 @@ import TechWatch from './components/TechWatch'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
-function App() {
+import { Routes, Route } from 'react-router-dom'
+import BTS from './components/BTS'
+
+function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* En-tête avec navigation */}
       <Header />
-
-      {/* Section héro - Présentation principale */}
       <Hero />
-
-      {/* Section à propos */}
       <About />
-
-      {/* Section projets */}
       <Projects />
-
-      {/* Section expérience/parcours */}
       <Experience />
-
-      {/* Section entreprise */}
       <Company />
-
-      {/* Section veille technologique */}
       <TechWatch />
-
-      {/* Section contact */}
       <Contact />
-
-      {/* Pied de page */}
       <Footer />
     </div>
+  )
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/bts" element={<BTS />} />
+    </Routes>
   )
 }
 

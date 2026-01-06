@@ -213,7 +213,7 @@ const Projects = () => {
                 key={filter.key}
                 onClick={() => setActiveFilter(filter.key)}
                 className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${activeFilter === filter.key
-                  ? 'bg-primary-600 text-white shadow-lg'
+                  ? 'bg-primary text-primary-foreground shadow-lg'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
               >

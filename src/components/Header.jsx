@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
 import { Menu, X } from 'lucide-react'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   // Détection du scroll pour changer l'apparence de l'en-tête
   useEffect(() => {
@@ -21,9 +24,40 @@ const Header = () => {
     { name: 'Projets', href: '#projects' },
     { name: 'Parcours', href: '#experience' },
     { name: 'Entreprise', href: '#company' },
+    { name: 'BTS', href: '/bts' },
     { name: 'Veille', href: '#techwatch' },
     { name: 'Contact', href: '#contact' }
   ]
+
+  const handleNavigation = (e, href) => {
+    e.preventDefault()
+    setIsMenuOpen(false)
+
+    if (href.startsWith('#')) {
+      // Navigation par ancre
+      if (location.pathname !== '/') {
+        // Si on n'est pas sur la page d'accueil, on y va d'abord
+        navigate('/')
+        // On attend que la navigation se fasse avant de scroller
+        setTimeout(() => {
+          const element = document.querySelector(href)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }
+        }, 100)
+      } else {
+        // Si on est déjà sur l'accueil, on scroll juste
+        const element = document.querySelector(href)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }
+    } else {
+      // Navigation vers une autre page (ex: /bts)
+      navigate(href)
+      window.scrollTo(0, 0)
+    }
+  }
 
   return (
     <header
@@ -36,19 +70,27 @@ const Header = () => {
         <div className="flex items-center justify-between h-14">
           {/* Logo/Nom */}
           <div className="flex-shrink-0">
-            <a href="#hero" className="text-xl font-bold text-primary">
+            <a
+              href="#hero"
+              className="text-xl font-bold text-primary cursor-pointer"
+              onClick={(e) => handleNavigation(e, '#hero')}
+            >
               Portfolio Maxence Bernard
             </a>
           </div>
 
           {/* Navigation desktop */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-4 flex items-baseline space-x-1 lg:space-x-4">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                  onClick={(e) => handleNavigation(e, item.href)}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer whitespace-nowrap ${location.pathname === item.href
+                    ? 'text-primary bg-primary/10'
+                    : 'text-foreground hover:text-primary'
+                    }`}
                 >
                   {item.name}
                 </a>
@@ -77,8 +119,11 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => handleNavigation(e, item.href)}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors cursor-pointer ${location.pathname === item.href
+                  ? 'text-primary bg-primary/10'
+                  : 'text-foreground hover:text-primary'
+                  }`}
               >
                 {item.name}
               </a>
