@@ -18,8 +18,8 @@ function LandingPage() {
       <Header />
       <Hero />
       <About />
-      <Projects />
       <Experience />
+      <Projects />
       <Company />
       <TechWatch />
       <Contact />
