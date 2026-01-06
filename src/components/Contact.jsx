@@ -2,27 +2,7 @@ import React, { useState } from 'react'
 import { Mail, Phone, MapPin, Linkedin } from 'lucide-react'
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Ici vous pourriez ajouter la logique d'envoi du formulaire
-    console.log('Formulaire soumis:', formData)
-    alert('Message envoyé ! Je vous répondrai bientôt.')
-    setFormData({ name: '', email: '', subject: '', message: '' })
-  }
 
   const contactInfo = [
     {
@@ -70,15 +50,7 @@ const Contact = () => {
       ),
       url: 'https://linkedin.com/in/maxence-bernard-alternance'
     },
-    {
-      name: 'Twitter',
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-        </svg>
-      ),
-      url: 'https://twitter.com/maxencebernard'
-    }
+
   ]
 
   return (
@@ -97,27 +69,27 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="flex justify-center">
             {/* Informations de contact */}
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-8">
+            <div className="w-full max-w-2xl bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-8 text-center">
                 Informations de contact
               </h3>
 
-              <div className="space-y-6 mb-8">
+              <div className="grid sm:grid-cols-2 gap-8 mb-12">
                 {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-center">
-                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 mr-4">
+                  <div key={index} className="flex flex-col items-center text-center p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                    <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 mb-4">
                       {info.icon === 'Mail' && <Mail size={24} />}
                       {info.icon === 'Phone' && <Phone size={24} />}
                       {info.icon === 'MapPin' && <MapPin size={24} />}
                       {info.icon === 'Linkedin' && <Linkedin size={24} />}
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">{info.title}</h4>
+                      <h4 className="font-semibold text-gray-900 mb-1">{info.title}</h4>
                       <a
                         href={info.link}
-                        className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                        className="text-gray-600 hover:text-primary-600 transition-colors duration-200 text-sm break-all"
                       >
                         {info.value}
                       </a>
@@ -127,18 +99,18 @@ const Contact = () => {
               </div>
 
               {/* Réseaux sociaux */}
-              <div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">
+              <div className="text-center">
+                <h4 className="text-lg font-semibold text-gray-900 mb-6">
                   Suivez-moi sur les réseaux
                 </h4>
-                <div className="flex space-x-4">
+                <div className="flex justify-center space-x-6">
                   {socialLinks.map((social, index) => (
                     <a
                       key={index}
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-gray-200 hover:bg-primary-600 text-gray-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-200"
+                      className="w-14 h-14 bg-gray-50 hover:bg-primary-600 text-gray-600 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1"
                       title={social.name}
                     >
                       {social.icon}
@@ -146,93 +118,6 @@ const Contact = () => {
                   ))}
                 </div>
               </div>
-
-              {/* Disponibilité */}
-
-            </div>
-
-            {/* Formulaire de contact */}
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-8">
-                Envoyez-moi un message
-              </h3>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Nom complet *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
-                      placeholder="Votre nom"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
-                      placeholder="votre@email.com"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                    Sujet *
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
-                    placeholder="Sujet de votre message"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200 resize-none"
-                    placeholder="Votre message..."
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full btn-primary py-3 text-lg font-medium"
-                >
-                  Envoyer le message
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                  </svg>
-                </button>
-              </form>
             </div>
           </div>
         </div>

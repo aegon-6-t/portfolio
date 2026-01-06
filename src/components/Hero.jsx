@@ -4,7 +4,7 @@ import { ArrowDown, Mail, UserCircle, ChevronDown } from 'lucide-react'
 
 const Hero = () => {
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-background">
+    <section id="hero" className="min-h-screen flex items-center justify-center pt-32 pb-16 bg-gradient-to-br from-primary/10 via-background to-background">
       <div className="container text-center">
         <div className="max-w-4xl mx-auto">
           {/* Photo de profil */}
