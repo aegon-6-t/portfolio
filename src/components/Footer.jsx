@@ -93,7 +93,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="pt-8 border-t border-gray-50 w-full text-center">
             <p className="text-gray-400 text-xs">
-              © {currentYear} Maxence Bernard. Tous droits réservés.
+              © {currentYear} Maxence Bernard. Tous droits réservés. <span className="mx-2">|</span> <a href="/mentions-legales" className="hover:text-primary-600 transition-colors">Mentions Légales</a>
             </p>
           </div>
 

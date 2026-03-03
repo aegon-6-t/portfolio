@@ -11,6 +11,7 @@ import Footer from './components/Footer'
 
 import { Routes, Route } from 'react-router-dom'
 import BTS from './components/BTS'
+import MentionsLegales from './components/MentionsLegales'
 
 function LandingPage() {
   return (
@@ -33,6 +34,7 @@ function App() {
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/bts" element={<BTS />} />
+      <Route path="/mentions-legales" element={<MentionsLegales />} />
     </Routes>
   )
 }
